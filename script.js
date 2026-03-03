@@ -1,52 +1,75 @@
-// 1. Definición de colores vivos para el fondo
-const colors = ["#e7f5ff", "#f3f0ff", "#ebfbee", "#fff5f5", "#fff9db"];
-let colorIndex = 0;
+const bgThemes = ["#f8f9fa", "#eef2ff", "#f0fdf4", "#fff7ed", "#faf5ff"];
+let themeIndex = 0;
 
-// 2. Arreglo de objetos con la información de los integrantes
-const members = [
+const teamMembers = [
     {
         photo: "Imagenes/oswaldomuniz.jpg",
         name: "Oswaldo Muñiz",
-        role: "Estudiante de Ingeniería en Sistemas Computacionales"
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        status: "Backend Developer",
+        color: "#f97316",
+        github: "https://github.com/oswa900"
     },
     {
         photo: "Imagenes/natanael.jpg",
-        name: "Natanael",
-        role: "Estudiante de Ingeniería en Sistemas Computacionales"
+        name: "Natanael Barrera",
+        role: "Estudiante de Ingeniería en Sistemas Computacionales",
+        status: "Frontend Developer",
+        color: "#3b82f6",
+        github: "https://github.com/nata23-dev"
     }
 ];
-
 let memberIndex = 0;
 
-// 3. Función para mostrar la hora actual (Tarea extra)
-function updateTime() {
+function updateClock() {
     const timeDisplay = document.getElementById("time-display");
     const now = new Date();
-    timeDisplay.textContent = "Hora local: " + now.toLocaleTimeString();
+    timeDisplay.innerHTML = `🕒 Hora local: ${now.toLocaleTimeString()}`;
 }
-setInterval(updateTime, 1000); // Se actualiza cada segundo
-updateTime(); // Llamada inicial al cargar la página
 
-// 4. Lógica para cambiar el color de fondo
-document.getElementById("colorButton").addEventListener("click", () => {
-    colorIndex = (colorIndex + 1) % colors.length;
-    document.body.style.backgroundColor = colors[colorIndex];
-});
+function handleSwitch(event) {
+    const card = document.getElementById("member-card");
+    const photo = document.getElementById("member-photo");
+    const name = document.getElementById("member-name");
+    const statusBadge = document.getElementById("member-status");
+    const githubLink = document.getElementById("member-github");
 
-// 5. Lógica para alternar entre integrantes dentro de la misma tarjeta
-document.getElementById("switchButton").addEventListener("click", (e) => {
-    // Incrementa el índice para pasar al siguiente compañero
-    memberIndex = (memberIndex + 1) % members.length;
+    card.style.opacity = "0";
+    card.style.transform = "translateY(10px)";
 
-    // Seleccionamos los elementos del HTML y los actualizamos con los datos del arreglo
-    document.getElementById("member-photo").src = members[memberIndex].photo;
-    document.getElementById("member-name").textContent = members[memberIndex].name;
-    document.getElementById("member-role").textContent = members[memberIndex].role;
+    setTimeout(() => {
+        memberIndex = (memberIndex + 1) % teamMembers.length;
+        const member = teamMembers[memberIndex];
 
-    // Cambio dinámico del texto del botón según el integrante actual
-    if (memberIndex === 0) {
-        e.target.textContent = "Mostrar al siguiente compañero";
-    } else {
-        e.target.textContent = "Mostrar a Oswaldo";
-    }
+        photo.src = member.photo;
+        name.textContent = member.name;
+        statusBadge.textContent = member.status;
+        githubLink.href = member.github;
+
+        statusBadge.style.backgroundColor = `${member.color}15`;
+        statusBadge.style.color = member.color;
+
+        event.target.innerHTML = memberIndex === 0
+            ? "Siguiente compañero ➜"
+            : "Ver a Oswaldo ➜";
+
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+    }, 300);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    document.getElementById("colorButton").addEventListener("click", () => {
+        themeIndex = (themeIndex + 1) % bgThemes.length;
+        document.body.style.backgroundColor = bgThemes[themeIndex];
+    });
+
+    document.getElementById("switchButton").addEventListener("click", handleSwitch);
+
+    const firstBadge = document.getElementById("member-status");
+    firstBadge.style.backgroundColor = "#f9731615";
+    firstBadge.style.color = "#f97316";
 });

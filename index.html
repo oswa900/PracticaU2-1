@@ -4,32 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica U2-1 | Mini-Sprint Equipo Respetuosos</title>
+    <title>Respetuosos | Sprint Interactiva</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Imagenes/favicon.png">
 </head>
 
 <body>
-<h1>Sprint: Página Interactiva</h1>
-<h2 id="team-name">Equipo: Respetuosos</h2>
 
-<p id="time-display">Cargando hora local...</p>
+<main class="main-content">
+    <header>
+        <h1>Sprint: Página Interactiva</h1>
+        <h2 id="team-name">Equipo: Respetuosos</h2>
+        <div id="time-container">
+            <p id="time-display">🕒 Cargando hora local...</p>
+        </div>
+    </header>
 
-<div id="members-container">
-    <div id="member-card">
-        <img id="member-photo" src="Imagenes/oswaldomuniz.jpg" alt="Foto del integrante">
+    <div id="members-container">
+        <div id="member-card">
+            <div class="photo-wrapper">
+                <img id="member-photo" src="Imagenes/oswaldomuniz.jpg" alt="Foto del integrante">
+            </div>
 
-        <div class="info-text">
-            <h2 id="member-name">Oswaldo Muñiz</h2>
-            <p id="member-role">Estudiante de Ingeniería en Sistemas Computacionales</p>
+            <div class="info-text">
+                <h2 id="member-name">Oswaldo Muñiz</h2>
+                <p id="member-role-title">Estudiante de Ingeniería en Sistemas Computacionales</p>
+
+                <div class="meta-info">
+                    <span id="member-status" class="status-badge">Backend Developer</span>
+                    <a id="member-github" href="https://github.com/oswa900" target="_blank" class="github-link">
+                        <span>💾</span> Ver GitHub
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="controles">
-    <button id="colorButton">Cambiar color de fondo</button>
-    <button id="switchButton">Mostrar al siguiente compañero</button>
-</div>
+    <div class="controles">
+        <button id="colorButton" title="Cambiar tema de fondo">
+            <span>🎨</span> Personalizar Fondo
+        </button>
+        <button id="switchButton" title="Ver siguiente integrante">
+            Siguiente compañero ➜
+        </button>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Equipo Respetuosos</strong></p>
+        <p>Laboratorio de Ingeniería de Software | Sesión 1</p>
+        <div class="social-links">
+            <a href="https://github.com/oswa900/PracticaU2-1" target="_blank">GitHub General</a>
+            <span class="separator">•</span>
+            <a href="#">LinkedIn</a>
+            <span class="separator">•</span>
+            <a href="#">Documentación</a>
+        </div>
+    </div>
+</footer>
 
 <script src="script.js"></script>
 </body>

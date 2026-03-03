@@ -1,11 +1,11 @@
-/* 1. Reset y Variables de Estilo Moderno */
 :root {
-    --primary: #4361ee;       /* Azul vibrante */
-    --secondary: #4cc9f0;     /* Celeste vivo */
-    --bg-light: #f8f9fa;      /* Gris muy claro */
-    --text-main: #2b2d42;     /* Azul oscuro */
+    --primary: #4361ee;
+    --secondary: #4cc9f0;
+    --bg-light: #f8f9fa;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
     --white: #ffffff;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -15,136 +15,188 @@
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.8s ease;
+}
+
+.main-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    transition: background-color 0.6s ease; /* Suaviza el cambio de color de fondo */
+    padding: 2rem;
+    width: 100%;
 }
 
-/* 2. Encabezados */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 h1 {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--primary);
-    margin-bottom: 8px;
-    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
 }
 
 #team-name {
-    font-size: 2.8rem;
-    font-weight: 900;
-    margin-bottom: 25px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 #time-display {
-    font-size: 0.95rem;
-    background: rgba(67, 97, 238, 0.1);
-    color: var(--primary);
-    padding: 10px 25px;
-    border-radius: 50px;
-    margin-bottom: 35px;
+    font-size: 0.85rem;
     font-weight: 600;
-}
-
-/* 3. Tarjeta de Integrante Única */
-#members-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
+    color: var(--primary);
+    margin-top: 10px;
 }
 
 #member-card {
     background: var(--white);
-    padding: 45px;
-    border-radius: 30px;
-    box-shadow: var(--shadow);
-    max-width: 450px;
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: var(--shadow-card);
     width: 100%;
+    max-width: 400px;
     text-align: center;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.02);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-#member-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Estilo de la Foto */
 #member-photo {
-    width: 180px;
-    height: 180px;
-    border-radius: 40px; /* Bordes redondeados modernos */
+    width: 150px;
+    height: 150px;
+    border-radius: 2.5rem;
     object-fit: cover;
-    margin-bottom: 25px;
-    border: 5px solid #f1f3f5;
-    transition: opacity 0.3s ease; /* Preparado para el cambio de JS */
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--bg-light);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Textos dentro de la tarjeta */
 .info-text h2 {
-    font-size: 1.8rem;
-    color: var(--text-main);
-    margin-bottom: 10px;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
 }
 
-#member-role {
-    font-size: 1rem;
-    color: #6c757d;
-    line-height: 1.5;
-    font-weight: 400;
+#member-role-title {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
 }
 
-/* 4. Botones */
-.controles {
+.meta-info {
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+
+.github-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: #f1f5f9;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.controles {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
 }
 
 button {
-    padding: 15px 30px;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 18px;
-    font-size: 1rem;
+    border-radius: 1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 #colorButton {
-    background-color: var(--text-main);
-    color: var(--white);
+    background: #1e293b;
+    color: white;
 }
 
 #switchButton {
-    background-color: var(--primary);
-    color: var(--white);
-    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.2);
+    background: var(--primary);
+    color: white;
 }
 
 button:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
+    transform: translateY(-2px);
+    filter: brightness(110%);
 }
 
-button:active {
-    transform: scale(0.95);
+.site-footer {
+    width: 100%;
+    padding: 2rem;
+    background: white;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
 }
 
-/* Responsivo para celulares */
-@media (max-width: 480px) {
-    #team-name { font-size: 2rem; }
-    #member-card { padding: 30px; }
+.footer-content p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.social-links {
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.separator { color: #cbd5e1; margin: 0 0.5rem; }
+
+@media (max-width: 450px) {
+    #team-name { font-size: 2.2rem; }
+    #member-card { padding: 2rem; }
+    .controles { flex-direction: column; width: 100%; }
+    button { width: 100%; justify-content: center; }
 }
