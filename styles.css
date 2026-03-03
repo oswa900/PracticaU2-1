@@ -27,7 +27,23 @@ h1 {
     color: #888;
 }
 
-#member-section img {
+#members-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+#member-section,
+#member2-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#member-section img,
+#member2-section img {
     width: 150px;
     height: 150px;
     object-fit: cover;

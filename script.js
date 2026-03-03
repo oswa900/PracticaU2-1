@@ -2,8 +2,8 @@ const colors = ["#0a0a0a", "#1a0000", "#001a00", "#00001a", "#1a1a00"];
 let colorIndex = 0;
 
 const members = [
-    { photo: "yo.jpg", desc: "Oswaldo Muñiz" },
-    { photo: "compa.jpg", desc: "Compañero - Descripción de su rol en el equipo." }
+    { photo: "Imagenes/oswaldomuniz.jpg", desc: "Oswaldo Muñiz" },
+    { photo: "Imagenes/natanael.jpg", desc: "Natanael" }
 ];
 let memberIndex = 0;
 
