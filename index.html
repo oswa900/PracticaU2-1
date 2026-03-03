@@ -4,31 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica U2-1 | Mini-Sprint</title>
+    <title>Práctica U2-1 | Mini-Sprint Equipo Respetuosos</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Sprint: Página Interactiva</h1>
-    <h2 id="team-name">Equipo: Respetuosos </h2>
+<h1>Sprint: Página Interactiva</h1>
+<h2 id="team-name">Equipo: Respetuosos</h2>
 
-    <p id="time-display"></p>
+<p id="time-display">Cargando hora local...</p>
 
-    <div id="members-container">
-        <div id="member-section">
-            <img id="member-photo" src="Imagenes/oswaldomuniz.jpg" alt="Foto Integrante 1">
-            <p id="member-desc">Oswaldo Muñiz</p>
-        </div>
-        <div id="member2-section">
-            <img id="member2-photo" src="Imagenes/natanael.jpg" alt="Foto Integrante 2">
-            <p id="member2-desc">Natanael.</p>
+<div id="members-container">
+    <div id="member-card">
+        <img id="member-photo" src="Imagenes/oswaldomuniz.jpg" alt="Foto del integrante">
+
+        <div class="info-text">
+            <h2 id="member-name">Oswaldo Muñiz</h2>
+            <p id="member-role">Estudiante de Ingeniería en Sistemas Computacionales</p>
         </div>
     </div>
+</div>
 
+<div class="controles">
     <button id="colorButton">Cambiar color de fondo</button>
-    <button id="switchButton">Mostrar al compañero</button>
+    <button id="switchButton">Mostrar al siguiente compañero</button>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>
