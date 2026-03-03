@@ -1,0 +1,58 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 20px;
+    background-color: #0a0a0a;
+    /* Fondo oscuro inicial */
+    color: #00ff00;
+    /* Texto verde*/
+    transition: background-color 0.5s ease;
+    /* Transición al cambiar fondo */
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px #555;
+}
+
+#team-name {
+    color: #00ffcc;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+}
+
+#time-display {
+    font-size: 14px;
+    color: #888;
+}
+
+#member-section img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #00ff00;
+    margin: 15px 0;
+    filter: grayscale(80%) contrast(120%);
+    /* Efecto visual oscuro */
+}
+
+button {
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #1a1a1a;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ff00;
+    color: #000;
+    box-shadow: 0 0 10px #00ff00;
+    /* Efecto neón al pasar el mouse */
+}
